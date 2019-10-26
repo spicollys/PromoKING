@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "813082319715",
+    "firebase_url": "https://promoking-6f311.firebaseio.com",
+    "project_id": "promoking-6f311",
+    "storage_bucket": "promoking-6f311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813082319715:android:9f32bf0f553d39039e5156",
+        "android_client_info": {
+          "package_name": "com.mpoo.promoking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813082319715-fvfehh2upd0s22mu0ji8d7s9kuutfdpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mpoo.promoking",
+            "certificate_hash": "38a31b3b10ff2f718fd8c30cc280f79b4c70d75e"
+          }
+        },
+        {
+          "client_id": "813082319715-skad9sc8vik39scv42j91g0edg5h9ih5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6kQqKCpfbCxJV6TdlN_ZmOsXw6RrBl6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813082319715-skad9sc8vik39scv42j91g0edg5h9ih5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

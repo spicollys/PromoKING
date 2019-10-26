@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PromoKING</string>
+    <string name="error_invalid_email">Endereço de email inválido</string>
+    <string name="error_invalid_username">O usuário deve ter ao menos 8 caracteres</string>
+    <string name="error_invalid_password">A senha deve ter ao menos 8 caracteres</string>
+    <string name="error_incompatible_password">As senhas não coincidem</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="msg_sucesso">Operação concluída com sucesso</string>
+    <string name="msg_falha">Erro ao executar a operação</string>
+    <string name="msg_cancelado">Operação cancelada</string>
+
+</resources>
