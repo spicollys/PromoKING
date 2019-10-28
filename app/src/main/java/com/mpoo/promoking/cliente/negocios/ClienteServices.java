@@ -16,7 +16,12 @@ public class ClienteServices {
             throw new UsuarioJaCadastradoException("Usuário já cadastrado");
         }
         ClienteDAO daoCliente = new ClienteDAO();
-        daoCliente.insertCliente(usuario);
+        daoCliente.insert(usuario);
         return usuarioServices.getUsuario(usuario.getUsername(), TipoUsuario.CLIENTE);
+    }
+
+    public void atualizarDados(Usuario usuario) throws IOException {
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.update(usuario);
     }
 }

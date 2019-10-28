@@ -1,5 +1,6 @@
 package com.mpoo.promoking.estabelecimentoComercial.negocios;
 
+import com.mpoo.promoking.cliente.persistencia.ClienteDAO;
 import com.mpoo.promoking.estabelecimentoComercial.persistencia.EstabelecimentoComercialDAO;
 import com.mpoo.promoking.infra.exception.UsuarioJaCadastradoException;
 import com.mpoo.promoking.usuario.dominio.TipoUsuario;
@@ -15,7 +16,12 @@ public class EstabelecimentoComercialServices {
             throw new UsuarioJaCadastradoException("Usuário já cadastrado");
         }
         EstabelecimentoComercialDAO daoEstabelecimentoComercial = new EstabelecimentoComercialDAO();
-        daoEstabelecimentoComercial.insertEstabelecimentoComercial(usuario);
+        daoEstabelecimentoComercial.insert(usuario);
         return usuarioServices.getUsuario(usuario.getUsername(), TipoUsuario.ESTABELECIMENTO_COMERCIAL);
     }
+    public void atualizarDados(Usuario usuario) throws IOException {
+        EstabelecimentoComercialDAO estabelecimentoComercialDAO = new EstabelecimentoComercialDAO();
+        estabelecimentoComercialDAO.update(usuario);
+    }
+
 }
