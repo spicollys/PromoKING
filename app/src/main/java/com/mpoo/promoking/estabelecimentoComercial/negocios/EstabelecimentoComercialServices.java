@@ -1,6 +1,5 @@
 package com.mpoo.promoking.estabelecimentoComercial.negocios;
 
-import com.mpoo.promoking.cliente.persistencia.ClienteDAO;
 import com.mpoo.promoking.estabelecimentoComercial.persistencia.EstabelecimentoComercialDAO;
 import com.mpoo.promoking.infra.exception.UsuarioJaCadastradoException;
 import com.mpoo.promoking.usuario.dominio.TipoUsuario;
