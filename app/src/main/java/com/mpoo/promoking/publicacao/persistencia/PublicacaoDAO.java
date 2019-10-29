@@ -60,7 +60,7 @@ public class PublicacaoDAO extends AbstractSQLite {
         });
         super.close(db);
     }
-    public void deletar(Publicacao publicacao) throws IOException {
+    public void delete(Publicacao publicacao) throws IOException {
         SQLiteDatabase db = super.getWritableDatabase();
         String[] argumentos = {String.valueOf(publicacao.getId())};
         db.delete(BancoDadosHelper.TABELA_PUBLICACAO, BancoDadosHelper.COLUNA_ID_PUBLICACAO + " =?", argumentos);
