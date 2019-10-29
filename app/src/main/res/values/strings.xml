@@ -8,5 +8,9 @@
     <string name="msg_sucesso">Operação concluída com sucesso</string>
     <string name="msg_falha">Erro ao executar a operação</string>
     <string name="msg_cancelado">Operação cancelada</string>
+    <string name="dinheiro_real">R$</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -215,6 +215,19 @@ public class CadastroActivity extends AppCompatActivity {
                 campoUsernameView.requestFocus();
                 Toast.makeText(CadastroActivity.this, "Usuário já cadastrado.", Toast.LENGTH_LONG).show();
             }
+            //Toast.makeText(CadastroActivity.this, result.getMsg(), Toast.LENGTH_LONG).show();
+
+            /*final Handler handler = new Handler()
+            {
+                @Override
+                public void handleMessage(Message mesg)
+                {
+                    throw new RuntimeException(); }
+            };
+
+            try{ Looper.loop(); }
+            catch(RuntimeException e){}
+            */
             if (result.getType() == TaskResultType.SUCCESS) {
                 cadastroConcluido();
             }

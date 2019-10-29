@@ -33,13 +33,14 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
 
     // TABELA PRODUTO
     public static final String TABELA_PRODUTO = "TB_PRODUTO";
+    public static final String COLUNA_ID_PRODUTO = "ID_PRODUTO";
     public static final String COLUNA_TIPO_PRODUTO = "TIPO";
-    public static final String COLUNA_MARCA_PRODUTO = "MARCA";
-    public static final String COLUNA_PRECO_PRODUTO = "PRECO";
-    public static final String COLUNA_VALIDADE_PROMOCAO = "VALIDADE";
+    public static final String COLUNA_MARCAS_PRODUTO = "MARCAS";
+
+
 
     private static final String[] TABELAS = {
-            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR,TABELA_PRODUTO
+            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO,
     };
 
     public BancoDadosHelper() {
@@ -93,10 +94,9 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     private void createTabelaProduto(SQLiteDatabase db){
         String sqlTbProduto =
                 " CREATE TABLE " + TABELA_PRODUTO + " (" +
+                        COLUNA_ID_PRODUTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUNA_TIPO_PRODUTO + " TEXT, " +
-                        COLUNA_MARCA_PRODUTO + " TEXT, " +
-                        COLUNA_PRECO_PRODUTO + " TEXT, " +
-                        COLUNA_VALIDADE_PROMOCAO + " TEXT );";
+                        COLUNA_MARCAS_PRODUTO + " TEXT);";
         db.execSQL(sqlTbProduto);
 
     }

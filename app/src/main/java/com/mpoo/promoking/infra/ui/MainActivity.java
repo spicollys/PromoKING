@@ -3,6 +3,8 @@ package com.mpoo.promoking.infra.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mpoo.promoking.R;
 import com.mpoo.promoking.usuario.ui.LoginActivity;
 
@@ -21,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.mainToolbar);
-        toolbar.setTitle("PromoKING");
         setSupportActionBar(toolbar);
+
+        configurarBottomNavigation();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+
     }
 
     @Override
@@ -50,5 +58,40 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void configurarBottomNavigation(){
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        habilitarNavegacao(bottomNavigationView);
+
+    }
+
+    private void habilitarNavegacao(BottomNavigationView view){
+        view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                switch (menuItem.getItemId()){
+                    case R.id.ic_home:
+                        fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+                        return true;
+                    case R.id.ic_pesquisar:
+                        fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
+                        return true;
+                    case R.id.ic_compras:
+                        fragmentTransaction.replace(R.id.viewPager, new ComprasFragment()).commit();
+                        return true;
+                    case R.id.ic_perfil:
+                        fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
+                        return true;
+                }
+                return false;
+            }
+        });
+
     }
 }
