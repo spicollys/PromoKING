@@ -41,6 +41,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String TABELA_PUBLICACAO = "TB_PUBLICACAO";
     public static final String COLUNA_ID_PUBLICACAO = "ID_PUBLICACAO";
     public static final String COLUNA_PROD_PUBLICACAO = "PROD_PUBLICACAO";
+    public static final String COLUNA_PRECO_PROD_PUBLICACAO = "PRECO";
     public static final String COLUNA_MARCA_PUBLICACAO = "MARCA";
     public static final String COLUNA_VALIDADE_PRODUTO = "VAL_PRODUTO";
     public static final String COLUNA_VALIDADE_PUBLICACAO = "VAL_PUBLICACAO";
@@ -116,6 +117,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                 " CREATE TABLE " + TABELA_PUBLICACAO + " (" +
                         COLUNA_ID_PUBLICACAO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUNA_PROD_PUBLICACAO + " TEXT, " +
+                        COLUNA_PRECO_PROD_PUBLICACAO + " REAL, " +
                         COLUNA_MARCA_PUBLICACAO + " TEXT, " +
                         COLUNA_VALIDADE_PRODUTO + " REAL, " +
                         COLUNA_VALIDADE_PUBLICACAO + " REAL, " +
