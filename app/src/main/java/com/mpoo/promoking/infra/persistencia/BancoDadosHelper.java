@@ -37,6 +37,15 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String COLUNA_TIPO_PRODUTO = "TIPO";
     public static final String COLUNA_MARCAS_PRODUTO = "MARCAS";
 
+    // TABELA PUBLICACAO
+    public static final String TABELA_PUBLICACAO = "TB_PUBLICACAO";
+    public static final String COLUNA_ID_PUBLICACAO = "ID_PUBLICACAO";
+    public static final String COLUNA_PROD_PUBLICACAO = "PROD_PUBLICACAO";
+    public static final String COLUNA_MARCA_PUBLICACAO = "MARCA";
+    public static final String COLUNA_VALIDADE_PRODUTO = "VAL_PRODUTO";
+    public static final String COLUNA_VALIDADE_PUBLICACAO = "VAL_PUBLICACAO";
+    public static final String COLUNA_UNID_VENDA = "UNID_VENDA";
+
 
 
     private static final String[] TABELAS = {
@@ -53,6 +62,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
         createTabelaEstabelecimentoComercial(db);
         createTabelaAdministrador(db);
         createTabelaProduto(db);
+        createTabelaPublicacao(db);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -99,6 +109,18 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                         COLUNA_MARCAS_PRODUTO + " TEXT);";
         db.execSQL(sqlTbProduto);
 
+    }
+
+    private void createTabelaPublicacao(SQLiteDatabase db) {
+        String sqlTbPublicacao =
+                " CREATE TABLE " + TABELA_PUBLICACAO + " (" +
+                        COLUNA_ID_PUBLICACAO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUNA_PROD_PUBLICACAO + " TEXT, " +
+                        COLUNA_MARCA_PUBLICACAO + " TEXT, " +
+                        COLUNA_VALIDADE_PRODUTO + " REAL, " +
+                        COLUNA_VALIDADE_PUBLICACAO + " REAL, " +
+                        COLUNA_UNID_VENDA + " INTEGER);";
+        db.execSQL(sqlTbPublicacao);
     }
 
     private void dropTables(SQLiteDatabase db) {
