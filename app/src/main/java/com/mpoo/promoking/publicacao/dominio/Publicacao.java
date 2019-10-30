@@ -3,8 +3,6 @@ package com.mpoo.promoking.publicacao.dominio;
 import com.mpoo.promoking.produto.dominio.Produto;
 import java.util.GregorianCalendar;
 
-import com.mpoo.promoking.publicacao.dominio.UnidadeVenda;
-
 public class Publicacao {
     private long id;
     private Produto produto;

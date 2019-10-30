@@ -6,6 +6,8 @@ import com.mpoo.promoking.publicacao.dominio.Publicacao;
 import com.mpoo.promoking.publicacao.persistencia.PublicacaoDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PublicacaoServices extends AbstractSQLite {
     public Publicacao getPublicacao(long publicacaoId) throws IOException {
@@ -33,5 +35,10 @@ public class PublicacaoServices extends AbstractSQLite {
             PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
             publicacaoDAO.delete(publicacao);
         }
+    }
+    public List<Publicacao> retornarListaPublicacoes() throws IOException {
+        PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
+        List<Publicacao> listaPublicacoes = publicacaoDAO.list();
+        return listaPublicacoes;
     }
 }

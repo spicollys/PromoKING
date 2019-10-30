@@ -16,6 +16,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String COLUNA_USERNAME_CLIENTE = "USERNAME_CLIENTE";
     public static final String COLUNA_SENHA_CLIENTE = "SENHA";
     public static final String COLUNA_EMAIL_CLIENTE = "EMAIL";
+    public static final String COLUNA_PUBLICACOES_CLIENTE = "PUBLICACOES";
 
     // TABELA ESTABELECIMENTO COMERCIAL
     public static final String TABELA_ESTABELECIMENTO_COMERCIAL = "TB_ESTABELECIMENTO";
@@ -23,6 +24,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String COLUNA_USERNAME_ESTABELECIMENTO_COMERCIAL = "USERNAME_ESTABELECIMENTO";
     public static final String COLUNA_SENHA_ESTABELECIMENTO_COMERCIAL = "SENHA";
     public static final String COLUNA_EMAIL_ESTABELECIMENTO_COMERCIAL = "EMAIL";
+    public static final String COLUNA_PUBLICACOES_ESTABELECIMENTO_COMERCIAL = "PUBLICACOES";
     public static final String COLUNA_CNPJ = "CNPJ";
 
     // TABELA ADMINISTRADOR
@@ -50,7 +52,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
 
 
     private static final String[] TABELAS = {
-            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO,
+            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO, TABELA_PUBLICACAO
     };
 
     public BancoDadosHelper() {
@@ -77,7 +79,8 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                         COLUNA_ID_CLIENTE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUNA_USERNAME_CLIENTE + " TEXT, " +
                         COLUNA_SENHA_CLIENTE + " TEXT, " +
-                        COLUNA_EMAIL_CLIENTE + " TEXT );";
+                        COLUNA_EMAIL_CLIENTE + " TEXT," +
+                        COLUNA_PUBLICACOES_CLIENTE + " TEXT );";
         db.execSQL(sqlTbCliente);
     }
 
@@ -88,9 +91,9 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                         COLUNA_USERNAME_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_SENHA_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_EMAIL_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
+                        COLUNA_PUBLICACOES_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_CNPJ + " TEXT );";
         db.execSQL(sqlTbEstabelecimentoComercial);
-
     }
 
     private void createTabelaAdministrador(SQLiteDatabase db) {
