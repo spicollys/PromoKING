@@ -182,9 +182,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         private void loginConcluido(){
             Toast.makeText(LoginActivity.this, "Login realizado com sucesso.", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
-            finish();
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
 
         @Override
