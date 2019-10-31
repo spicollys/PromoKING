@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mpoo.promoking.R;
+import com.mpoo.promoking.usuario.negocios.UsuarioServices;
 import com.mpoo.promoking.usuario.ui.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,14 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_sair:
-                deslogar();
+                deslogarUsuario();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void deslogar() {
+    private void deslogarUsuario() {
         try{
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            UsuarioServices services = new UsuarioServices();
+            services.logout();
+            startActivity(new Intent(this, LoginActivity.class));
         } catch (Exception e){
             e.printStackTrace();
         }

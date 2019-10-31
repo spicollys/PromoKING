@@ -8,7 +8,7 @@ import com.mpoo.promoking.infra.ui.PromoKINGApp;
 public class BancoDadosHelper extends SQLiteOpenHelper {
 
     public static final String BANCO_DE_DADOS_NOME = "BANCO_DE_DADOS_NOME";
-    public static final int VERSAO = 5;
+    public static final int VERSAO = 1;
 
     // TABELA CLIENTE
     public static final String TABELA_CLIENTE = "TB_CLIENTE";
@@ -49,7 +49,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
 
 
     private static final String[] TABELAS = {
-            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO,
+            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO, TABELA_PUBLICACAO,
     };
 
     public BancoDadosHelper() {
