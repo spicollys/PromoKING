@@ -20,7 +20,7 @@
         />
 
     <TextView
-        android:id="@+id/ProdutoView"
+        android:id="@+id/ProdutoViewCriarPub"
         android:layout_width="75dp"
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
@@ -29,13 +29,13 @@
         android:text="Produto:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteProduto"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteProdutoCriarPub"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/CriarImagemProdutoEstComercial"
         />
 
     <TextView
-        android:id="@+id/MarcaView"
+        android:id="@+id/MarcaViewCriarPub"
         android:layout_width="75dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -43,13 +43,13 @@
         android:text="Marca:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteMarca"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteMarcaCriarPub"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ProdutoView" />
+        app:layout_constraintTop_toBottomOf="@+id/ProdutoViewCriarPub" />
 
     <TextView
-        android:id="@+id/UnVendaView"
+        android:id="@+id/UnVendaViewCriarPub"
         android:layout_width="150dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
@@ -57,12 +57,12 @@
         android:text="Unidade de venda:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteUnVenda"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteUnVendaCriarPub"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/MarcaView" />
+        app:layout_constraintTop_toBottomOf="@+id/MarcaViewCriarPub" />
 
     <TextView
-        android:id="@+id/ValidadeProdutoView"
+        android:id="@+id/ValidadeProdutoViewCriarPub"
         android:layout_width="174dp"
         android:layout_height="34dp"
         android:layout_marginTop="8dp"
@@ -71,14 +71,14 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDateValidadeProduto"
+        app:layout_constraintEnd_toStartOf="@+id/editTextDateValidadeProdutoCriarPub"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/UnVendaView"
+        app:layout_constraintTop_toBottomOf="@+id/UnVendaViewCriarPub"
         app:layout_constraintVertical_bias="0.0" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteProduto"
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteProdutoCriarPub"
         android:layout_width="285dp"
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
@@ -87,27 +87,27 @@
         android:background="@drawable/background_botao_preto"
         />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteMarca"
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteMarcaCriarPub"
         android:layout_width="286dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteProduto"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteProdutoCriarPub"
         android:background="@drawable/background_botao_preto"
         />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteUnVenda"
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteUnVendaCriarPub"
         android:layout_width="209dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/background_botao_preto"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteMarca" />
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteMarcaCriarPub" />
 
     <EditText
-        android:id="@+id/editTextDateValidadeProduto"
+        android:id="@+id/editTextDateValidadeProdutoCriarPub"
         android:layout_width="193dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -116,7 +116,7 @@
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteUnVenda"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteUnVendaCriarPub"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -149,7 +149,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoAdicionarPubEstComercial"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -158,6 +158,6 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ValidadeProdutoView" />
+        app:layout_constraintTop_toBottomOf="@+id/ValidadeProdutoViewCriarPub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

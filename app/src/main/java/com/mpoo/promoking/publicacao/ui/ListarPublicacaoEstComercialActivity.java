@@ -25,7 +25,7 @@ public class ListarPublicacaoEstComercialActivity extends AppCompatActivity {
         PublicacaoServices publicacaoServices = new PublicacaoServices();
         List<Publicacao> listaPublicacoes = null;
         try {
-            listaPublicacoes = publicacaoServices.retornarListaPublicacoes();
+            listaPublicacoes = publicacaoServices.retornarListaObjetosPublicacoes();
         } catch (IOException e) {
             e.printStackTrace();
         }
