@@ -238,8 +238,7 @@ public class CadastroActivity extends AppCompatActivity {
         }
         private void cadastroConcluido() {
             Toast.makeText(CadastroActivity.this, "Cadastro concluído com sucesso.", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(CadastroActivity.this, LoginActivity.class);
-            startActivity(i);
+            startActivity(new Intent(CadastroActivity.this, LoginActivity.class));
             finish();
         }
 
