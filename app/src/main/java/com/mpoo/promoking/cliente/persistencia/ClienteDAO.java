@@ -4,14 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.mpoo.promoking.infra.exception.IdTipoUsuarioInvalidoException;
 import com.mpoo.promoking.infra.exception.UsuarioEmailInvalidoException;
-import com.mpoo.promoking.infra.exception.UsuarioNaoCadastradoException;
 import com.mpoo.promoking.infra.exception.UsuarioSenhaInvalidaException;
 import com.mpoo.promoking.infra.exception.UsuarioUsernameInvalidoException;
 import com.mpoo.promoking.infra.persistencia.BancoDadosHelper;
 import com.mpoo.promoking.infra.persistencia.AbstractSQLite;
-import com.mpoo.promoking.usuario.dominio.TipoUsuario;
 import com.mpoo.promoking.usuario.dominio.Usuario;
 
 import java.io.IOException;
@@ -75,7 +72,7 @@ public class ClienteDAO extends AbstractSQLite {
         });
 
         super.close(db);
-        }
+    }
 
     public void delete(Usuario usuario) throws IOException {
         SQLiteDatabase db = super.getWritableDatabase();
@@ -84,4 +81,3 @@ public class ClienteDAO extends AbstractSQLite {
         super.close(db);
     }
 }
-
