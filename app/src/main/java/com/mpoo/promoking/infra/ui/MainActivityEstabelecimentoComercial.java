@@ -1,28 +1,28 @@
 package com.mpoo.promoking.infra.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mpoo.promoking.R;
 import com.mpoo.promoking.usuario.negocios.UsuarioServices;
 import com.mpoo.promoking.usuario.ui.LoginActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityEstabelecimentoComercial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_estabelecimento_comercial);
 
         Toolbar toolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
@@ -82,11 +82,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_home:
                         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
                         return true;
-                    case R.id.ic_pesquisar:
-                        fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
-                        return true;
-                    case R.id.ic_compras:
-                        fragmentTransaction.replace(R.id.viewPager, new ComprasFragment()).commit();
+                    case R.id.ic_add:
+                        fragmentTransaction.replace(R.id.viewPager, new AddPublicacaoFragment()).commit();
                         return true;
                     case R.id.ic_perfil:
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();

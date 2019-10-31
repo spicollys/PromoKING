@@ -19,8 +19,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public String getIdTipoUsuario() {
-        return tipoUsuario.toString();
+    public TipoUsuario getIdTipoUsuario() {
+        return tipoUsuario;
     }
 
     public void setIdTipoUsuario(TipoUsuario tipoUsuario) throws IdTipoUsuarioInvalidoException {

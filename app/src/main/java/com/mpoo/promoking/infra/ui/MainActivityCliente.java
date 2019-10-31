@@ -17,7 +17,7 @@ import com.mpoo.promoking.R;
 import com.mpoo.promoking.usuario.negocios.UsuarioServices;
 import com.mpoo.promoking.usuario.ui.LoginActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityCliente extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_pesquisar:
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
                         return true;
-                    case R.id.ic_compras:
-                        fragmentTransaction.replace(R.id.viewPager, new ComprasFragment()).commit();
+                    case R.id.ic_add:
+                        fragmentTransaction.replace(R.id.viewPager, new AddPublicacaoFragment()).commit();
                         return true;
                     case R.id.ic_perfil:
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();

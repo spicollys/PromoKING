@@ -15,7 +15,7 @@
         <activity android:name=".publicacao.ui.CriarPublicacaoEstComercialActivity" />
         <activity android:name=".publicacao.ui.ListarPublicacaoEstComercialActivity" />
         <activity android:name=".usuario.ui.CadastroActivity" />
-        <activity android:name=".feed.ui.FeedActivity" />
+        <activity android:name=".infra.ui.MainActivityEstabelecimentoComercial" />
         <activity android:name=".usuario.ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".infra.ui.MainActivity" />
+        <activity android:name=".infra.ui.MainActivityCliente" />
     </application>
 
 </manifest>
