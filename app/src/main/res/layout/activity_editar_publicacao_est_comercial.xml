@@ -84,7 +84,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/imageProdutoEditarEstComercial"
-        android:background="@drawable/background_botao_cinza_claro"
+        android:background="@drawable/background_botao_cinza"
         />
 
     <TextView
