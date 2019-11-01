@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_pesquisar:
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
                         return true;
-                    case R.id.ic_compras:
+                    case R.id.ic_add:
                         fragmentTransaction.replace(R.id.viewPager, new ComprasFragment()).commit();
                         return true;
                     case R.id.ic_perfil:
