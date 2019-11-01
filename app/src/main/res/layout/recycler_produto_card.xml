@@ -10,7 +10,7 @@
     android:padding="0dp">
 
     <View
-        android:id="@+id/listPopupAnchor"
+        android:id="@+id/listPopupAnchorCardEstComercial"
         android:layout_width="0dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,19 +19,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/produtoTipo"
+        android:id="@+id/produtoTipoCardEstComercial"
         android:layout_width="237dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/imagemProduto"
+        app:layout_constraintStart_toEndOf="@+id/imagemProdutoCardEstComercial"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Tipo Produto" />
 
     <TextView
-        android:id="@+id/produtoMarca"
+        android:id="@+id/produtoMarcaCardEstComercial"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
@@ -41,11 +41,11 @@
         android:textColorLink="#00FFFFFF"
         android:textSize="14sp"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-        app:layout_constraintTop_toBottomOf="@+id/produtoTipo" />
+        app:layout_constraintStart_toEndOf="@+id/imagemProdutoCardEstComercial"
+        app:layout_constraintTop_toBottomOf="@+id/produtoTipoCardEstComercial" />
 
     <TextView
-        android:id="@+id/dinheiroReal"
+        android:id="@+id/dinheiroRealCardEstComercial"
         android:layout_width="22dp"
         android:layout_height="30dp"
         android:layout_marginStart="108dp"
@@ -55,12 +55,12 @@
         android:textColorLink="#00FFFFFF"
         android:textSize="14sp"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-        app:layout_constraintTop_toBottomOf="@+id/produtoTipo"
+        app:layout_constraintStart_toEndOf="@+id/imagemProdutoCardEstComercial"
+        app:layout_constraintTop_toBottomOf="@+id/produtoTipoCardEstComercial"
         tools:text="@string/dinheiro_real" />
 
     <TextView
-        android:id="@+id/produtoPreco2"
+        android:id="@+id/produtoPrecoCardEstComercial"
         android:layout_width="78dp"
         android:layout_height="30dp"
         android:layout_marginStart="132dp"
@@ -70,11 +70,11 @@
         android:textColorLink="#00FFFFFF"
         android:textSize="14sp"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-        app:layout_constraintTop_toBottomOf="@+id/produtoTipo" />
+        app:layout_constraintStart_toEndOf="@+id/imagemProdutoCardEstComercial"
+        app:layout_constraintTop_toBottomOf="@+id/produtoTipoCardEstComercial" />
 
     <TextView
-        android:id="@+id/produtoUn"
+        android:id="@+id/produtoUnCardEstComercial"
         android:layout_width="33dp"
         android:layout_height="29dp"
         android:layout_marginStart="212dp"
@@ -84,38 +84,38 @@
         android:textColorLink="#00FFFFFF"
         android:textSize="14sp"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-        app:layout_constraintTop_toBottomOf="@+id/produtoTipo" />
+        app:layout_constraintStart_toEndOf="@+id/imagemProdutoCardEstComercial"
+        app:layout_constraintTop_toBottomOf="@+id/produtoTipoCardEstComercial" />
 
     <ImageView
-        android:id="@+id/imagemProduto"
+        android:id="@+id/imagemProdutoCardEstComercial"
         android:layout_width="73dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/produtoTipo"
+        app:layout_constraintEnd_toStartOf="@+id/produtoTipoCardEstComercial"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_photo_strong_red_24dp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/editPubCardEstComercial"
         android:layout_width="31dp"
         android:layout_height="70dp"
         android:layout_marginStart="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/produtoTipo"
+        app:layout_constraintStart_toEndOf="@+id/produtoTipoCardEstComercial"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.533"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/deletePubCardEstComercial"
         android:layout_width="37dp"
         android:layout_height="71dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/listPopupAnchor"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/listPopupAnchorCardEstComercial"
+        app:layout_constraintStart_toEndOf="@+id/editPubCardEstComercial"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_delete_black_24dp" />
 

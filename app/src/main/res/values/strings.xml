@@ -9,5 +9,7 @@
     <string name="msg_falha">Erro ao executar a operação</string>
     <string name="msg_cancelado">Operação cancelada</string>
     <string name="dinheiro_real">R$</string>
+    <string name="date_hint">" dd/mm/aaaa"</string>
+    <string name="android" />
 
 </resources>

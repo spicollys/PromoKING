@@ -8,7 +8,7 @@ import com.mpoo.promoking.infra.ui.PromoKINGApp;
 public class BancoDadosHelper extends SQLiteOpenHelper {
 
     public static final String BANCO_DE_DADOS_NOME = "BANCO_DE_DADOS_NOME";
-    public static final int VERSAO = 1;
+    public static final int VERSAO = 5;
 
     // TABELA CLIENTE
     public static final String TABELA_CLIENTE = "TB_CLIENTE";
@@ -16,6 +16,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String COLUNA_USERNAME_CLIENTE = "USERNAME_CLIENTE";
     public static final String COLUNA_SENHA_CLIENTE = "SENHA";
     public static final String COLUNA_EMAIL_CLIENTE = "EMAIL";
+    public static final String COLUNA_PUBLICACOES_CLIENTE = "PUBLICACOES";
 
     // TABELA ESTABELECIMENTO COMERCIAL
     public static final String TABELA_ESTABELECIMENTO_COMERCIAL = "TB_ESTABELECIMENTO";
@@ -23,6 +24,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String COLUNA_USERNAME_ESTABELECIMENTO_COMERCIAL = "USERNAME_ESTABELECIMENTO";
     public static final String COLUNA_SENHA_ESTABELECIMENTO_COMERCIAL = "SENHA";
     public static final String COLUNA_EMAIL_ESTABELECIMENTO_COMERCIAL = "EMAIL";
+    public static final String COLUNA_PUBLICACOES_ESTABELECIMENTO_COMERCIAL = "PUBLICACOES";
     public static final String COLUNA_CNPJ = "CNPJ";
 
     // TABELA ADMINISTRADOR
@@ -41,6 +43,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
     public static final String TABELA_PUBLICACAO = "TB_PUBLICACAO";
     public static final String COLUNA_ID_PUBLICACAO = "ID_PUBLICACAO";
     public static final String COLUNA_PROD_PUBLICACAO = "PROD_PUBLICACAO";
+    public static final String COLUNA_PRECO_PROD_PUBLICACAO = "PRECO";
     public static final String COLUNA_MARCA_PUBLICACAO = "MARCA";
     public static final String COLUNA_VALIDADE_PRODUTO = "VAL_PRODUTO";
     public static final String COLUNA_VALIDADE_PUBLICACAO = "VAL_PUBLICACAO";
@@ -49,7 +52,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
 
 
     private static final String[] TABELAS = {
-            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO, TABELA_PUBLICACAO,
+            TABELA_CLIENTE, TABELA_ESTABELECIMENTO_COMERCIAL, TABELA_ADMINISTRADOR, TABELA_PRODUTO, TABELA_PUBLICACAO
     };
 
     public BancoDadosHelper() {
@@ -76,7 +79,8 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                         COLUNA_ID_CLIENTE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUNA_USERNAME_CLIENTE + " TEXT, " +
                         COLUNA_SENHA_CLIENTE + " TEXT, " +
-                        COLUNA_EMAIL_CLIENTE + " TEXT );";
+                        COLUNA_EMAIL_CLIENTE + " TEXT," +
+                        COLUNA_PUBLICACOES_CLIENTE + " TEXT );";
         db.execSQL(sqlTbCliente);
     }
 
@@ -87,6 +91,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                         COLUNA_USERNAME_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_SENHA_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_EMAIL_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
+                        COLUNA_PUBLICACOES_ESTABELECIMENTO_COMERCIAL + " TEXT, " +
                         COLUNA_CNPJ + " TEXT );";
         db.execSQL(sqlTbEstabelecimentoComercial);
 
@@ -116,6 +121,7 @@ public class BancoDadosHelper extends SQLiteOpenHelper {
                 " CREATE TABLE " + TABELA_PUBLICACAO + " (" +
                         COLUNA_ID_PUBLICACAO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUNA_PROD_PUBLICACAO + " TEXT, " +
+                        COLUNA_PRECO_PROD_PUBLICACAO + " REAL, " +
                         COLUNA_MARCA_PUBLICACAO + " TEXT, " +
                         COLUNA_VALIDADE_PRODUTO + " REAL, " +
                         COLUNA_VALIDADE_PUBLICACAO + " REAL, " +
