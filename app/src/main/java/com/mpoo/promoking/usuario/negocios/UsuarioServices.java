@@ -12,13 +12,6 @@ import java.io.IOException;
 
 public class UsuarioServices extends AbstractSQLite{
 
-    public void login (String username, String senha, TipoUsuario idTipoUsuario) throws IOException, UsuarioNaoCadastradoException {
-        Usuario usuario = validacaoLogin(username, senha, idTipoUsuario);
-        if (usuario == null) {
-            throw new UsuarioNaoCadastradoException("Usuário não cadastrado");
-        }
-        //sessão
-    }
 
     public Usuario getUsuario(String username, TipoUsuario idTipoUsuario) throws IOException {
         Usuario result = null;
