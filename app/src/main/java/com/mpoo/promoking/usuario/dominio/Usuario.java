@@ -68,4 +68,19 @@ public class Usuario {
         }
         this.senha = senha;
     }
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public EstabelecimentoComercial getEstabelecimentoComercial() {
+        return estabelecimentoComercial;
+    }
+
+    public void setEstabelecimentoComercial(EstabelecimentoComercial estabelecimentoComercial) {
+        this.estabelecimentoComercial = estabelecimentoComercial;
+    }
 }

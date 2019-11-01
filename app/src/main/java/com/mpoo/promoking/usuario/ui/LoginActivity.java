@@ -14,6 +14,7 @@ import com.mpoo.promoking.infra.ui.MainActivityCliente;
 import com.mpoo.promoking.infra.ui.MainActivityEstabelecimentoComercial;
 import com.mpoo.promoking.infra.ui.TaskResult;
 import com.mpoo.promoking.infra.ui.TaskResultType;
+import com.mpoo.promoking.publicacao.ui.CriarPublicacaoEstComercialActivity;
 import com.mpoo.promoking.usuario.dominio.TipoUsuario;
 import com.mpoo.promoking.usuario.dominio.Usuario;
 import com.mpoo.promoking.usuario.negocios.UsuarioServices;
@@ -187,8 +188,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         private void loginConcluido(TipoUsuario idTipoUsuario){
             Toast.makeText(LoginActivity.this, "Login realizado com sucesso.", Toast.LENGTH_LONG).show();
-
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
             if (idTipoUsuario.equals(TipoUsuario.CLIENTE)){
                 startActivity(new Intent(LoginActivity.this, MainActivityCliente.class));

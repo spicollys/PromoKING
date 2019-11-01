@@ -3,7 +3,6 @@ package com.mpoo.promoking.publicacao.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import com.mpoo.promoking.infra.persistencia.AbstractSQLite;
 import com.mpoo.promoking.infra.persistencia.BancoDadosHelper;
@@ -22,6 +21,7 @@ public class PublicacaoDAO extends AbstractSQLite {
         ContentValues values = new ContentValues();
         values.put(BancoDadosHelper.COLUNA_PROD_PUBLICACAO, publicacao.getProduto().getTipo());
         values.put(BancoDadosHelper.COLUNA_MARCA_PUBLICACAO, publicacao.getMarca());
+        values.put(BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO, publicacao.getPreco());
         values.put(BancoDadosHelper.COLUNA_VALIDADE_PRODUTO, publicacao.getValidadeProduto().getTimeInMillis());
         values.put(BancoDadosHelper.COLUNA_VALIDADE_PUBLICACAO, publicacao.getValidadePublicacao().getTimeInMillis());
         values.put(BancoDadosHelper.COLUNA_UNID_VENDA, publicacao.getUnidadeVenda().ordinal());
@@ -45,6 +45,7 @@ public class PublicacaoDAO extends AbstractSQLite {
         SQLiteDatabase db = super.getWritableDatabase();
         String sql = "UPDATE "+ BancoDadosHelper.TABELA_PUBLICACAO + " SET " +
                 BancoDadosHelper.COLUNA_PROD_PUBLICACAO  + "=?, " +
+                BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO  + "=?, " +
                 BancoDadosHelper.COLUNA_MARCA_PUBLICACAO  + "=?, " +
                 BancoDadosHelper.COLUNA_VALIDADE_PRODUTO  + "=?, " +
                 BancoDadosHelper.COLUNA_VALIDADE_PUBLICACAO  + "=?, " +
@@ -52,6 +53,7 @@ public class PublicacaoDAO extends AbstractSQLite {
                 " WHERE " + BancoDadosHelper.COLUNA_ID_PUBLICACAO + "=?;";
         db.execSQL(sql, new String[]{
                 publicacao.getProduto().getTipo(),
+                String.valueOf(publicacao.getPreco()),
                 publicacao.getMarca(),
                 String.valueOf(publicacao.getValidadeProduto().getTimeInMillis()),
                 String.valueOf(publicacao.getValidadePublicacao().getTimeInMillis()),
@@ -89,6 +91,7 @@ public class PublicacaoDAO extends AbstractSQLite {
         //
         Publicacao publicacao = new Publicacao();
         publicacao.setProduto(produto);
+        publicacao.setPreco(cursorPublicacao.getDouble(cursor.getColumnIndex(BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO)));
         publicacao.setMarca(cursorPublicacao.getString(cursorPublicacao.getColumnIndex(BancoDadosHelper.COLUNA_MARCA_PUBLICACAO)));
         GregorianCalendar validadeProduto = new GregorianCalendar();
         GregorianCalendar validadePublicacao = new GregorianCalendar();
