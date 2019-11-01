@@ -22,8 +22,6 @@
         android:id="@+id/CriarImagemProdutoEstComercial"
         android:layout_width="197dp"
         android:layout_height="153dp"
-        android:layout_width="285dp"
-        android:layout_height="248dp"
         android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
