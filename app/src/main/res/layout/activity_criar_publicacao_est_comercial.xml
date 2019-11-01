@@ -7,17 +7,28 @@
     android:background="@color/amarelo_pastel_background"
     tools:context=".publicacao.ui.CriarPublicacaoEstComercialActivity">
 
+    <ru.kolotnev.formattedittext.MaskedEditText
+        android:id="@+id/editTextPrecoProdutoCriarPub"
+        android:layout_width="193dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_botao_preto"
+        app:mask=" R$ 999 , 99"
+        app:placeholder="_"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDateValidadeProdutoCriarPub" />
+
     <ImageView
         android:id="@+id/CriarImagemProdutoEstComercial"
-        android:layout_width="164dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="125dp"
+        android:layout_width="285dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_photo_strong_red_24dp"
-        />
+        app:srcCompat="@drawable/ic_photo_strong_red_24dp" />
 
     <TextView
         android:id="@+id/ProdutoViewCriarPub"
@@ -26,13 +37,13 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
         android:text="Produto:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/autoCompleteProdutoCriarPub"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/CriarImagemProdutoEstComercial"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/CriarImagemProdutoEstComercial" />
 
     <TextView
         android:id="@+id/MarcaViewCriarPub"
@@ -40,6 +51,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
         android:text="Marca:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -54,6 +66,7 @@
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
         android:text="Unidade de venda:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -67,15 +80,29 @@
         android:layout_height="34dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
         android:text="Validade do produto:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextDateValidadeProdutoCriarPub"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/UnVendaViewCriarPub"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/UnVendaViewCriarPub" />
+
+    <TextView
+        android:id="@+id/PrecoProdutoViewCriarPub"
+        android:layout_width="174dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:text="Preço do produto:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextDateValidadeProdutoCriarPub"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/ValidadeProdutoViewCriarPub" />
 
     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:id="@+id/autoCompleteProdutoCriarPub"
@@ -113,11 +140,14 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/background_botao_preto"
         android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_vertical"
+        android:hint="@string/date_hint"
+        android:inputType="none"
+        android:maxLength="10"
+        android:editable="false"
+        android:cursorVisible="false"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteUnVendaCriarPub"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteUnVendaCriarPub" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -133,31 +163,17 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95" />
 
-    <TextView
-        android:id="@+id/CabecarioCriar"
-        android:layout_width="414dp"
-        android:layout_height="61dp"
-        android:background="@drawable/background_botao_strong_red"
-        android:text="Adicionar Promoção"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/botaoAdicionarPubEstComercial"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/background_botao_strong_red"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_button"
         android:text="Adicionar"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ValidadeProdutoViewCriarPub" />
+        app:layout_constraintTop_toBottomOf="@+id/PrecoProdutoViewCriarPub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,5 +31,6 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.android.support:design:29.0.0'
     implementation 'org.apache.commons:commons-text:1.6'
+    implementation 'ru.kolotnev:formatt-edit-text:0.7'
 }
 apply plugin: 'com.google.gms.google-services'

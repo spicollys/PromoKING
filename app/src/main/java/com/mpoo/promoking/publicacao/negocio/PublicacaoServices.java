@@ -17,7 +17,7 @@ public class PublicacaoServices extends AbstractSQLite {
         result = publicacaoDAO.get(publicacaoId);
         return result;
     }
-    public Publicacao salvarPublicacao(Publicacao publicacao, Usuario usuario) throws IOException, PublicacaoJaRealizadaException {
+    public void salvarPublicacao(Publicacao publicacao, Usuario usuario) throws IOException, PublicacaoJaRealizadaException {
         if(getPublicacao(publicacao.getId()) != null) {
             throw new PublicacaoJaRealizadaException("Publicação já existe.");
         }
@@ -29,7 +29,6 @@ public class PublicacaoServices extends AbstractSQLite {
         }else {
             usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().add(String.valueOf(idPublicacao));
         }
-        return getPublicacao(publicacao.getId());
     }
     public void atualizarPublicacao(Publicacao publicacao) throws IOException {
         if (getPublicacao(publicacao.getId()) != null) {

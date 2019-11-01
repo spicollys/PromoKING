@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#581100</color>
     <color name="colorAccent">#FFCCDD</color>
     <color name="cinza_medio">#FCA8A8A8</color>
-    <color name="amarelo_pastel_background">#97FFF6A9</color>
+    <color name="cinza_disabled">#686868</color>
+    <color name="amarelo_pastel_background">#97FFF9DE</color>
     <color name="strong_red">#8D1800</color>
 </resources>

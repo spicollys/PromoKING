@@ -12,6 +12,7 @@ import com.mpoo.promoking.R;
 import com.mpoo.promoking.infra.ui.MainActivity;
 import com.mpoo.promoking.infra.ui.TaskResult;
 import com.mpoo.promoking.infra.ui.TaskResultType;
+import com.mpoo.promoking.publicacao.ui.CriarPublicacaoEstComercialActivity;
 import com.mpoo.promoking.usuario.dominio.TipoUsuario;
 import com.mpoo.promoking.usuario.negocios.UsuarioServices;
 
@@ -158,6 +159,7 @@ public class LoginActivity extends AppCompatActivity {
             TaskResult result = TaskResult.SUCCESS;
             try {
                 usuarioServices.login(username, senha, idTipoUsuario);
+
             } catch (Exception error){
                 error.printStackTrace();
                 result = new TaskResult(TaskResultType.FAIL, error.getMessage());
@@ -176,14 +178,19 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos ou tipo de usuário incorreto.", Toast.LENGTH_LONG).show();
             }
             if (result.getType() == TaskResultType.SUCCESS) {
-                loginConcluido();
+                loginConcluido(idTipoUsuario);
             }
             resetTask();
         }
-        private void loginConcluido(){
+        private void loginConcluido(TipoUsuario idTipoUsuario){
             Toast.makeText(LoginActivity.this, "Login realizado com sucesso.", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
+            if(idTipoUsuario.equals(TipoUsuario.CLIENTE)) {
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+            }else{
+                Intent i = new Intent(LoginActivity.this, CriarPublicacaoEstComercialActivity.class);
+                startActivity(i);
+            }
             finish();
         }
 
