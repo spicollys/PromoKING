@@ -1,17 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".infra.ui.AddPublicacaoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/CriarImagemProdutoEstComercial"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Add Produto"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:layout_height="130dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_photo_strong_red_24dp" />
+
+    <TextView
+        android:id="@+id/ProdutoViewCriarPub"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="145dp"
+        android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
+        android:text="Produto:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteProdutoCriarPub"
+        android:layout_width="285dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="145dp"
+        android:background="@drawable/background_botao_preto" />
+
+    <TextView
+        android:id="@+id/MarcaViewCriarPub"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
+        android:text="Marca:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteMarcaCriarPub"
+        android:layout_width="285dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/background_botao_preto" />
+
+    <TextView
+        android:id="@+id/UnVendaViewCriarPub"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
+        android:text="Unidade de venda:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoCompleteUnVendaCriarPub"
+        android:layout_width="209dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/background_botao_preto" />
+
+    <TextView
+        android:id="@+id/ValidadeProdutoViewCriarPub"
+        android:layout_width="175dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
+        android:text="Validade do produto:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextDateValidadeProdutoCriarPub"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/background_botao_preto"
+        android:cursorVisible="false"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="@string/date_hint"
+        android:inputType="none"
+        android:maxLength="10" />
+
+    <TextView
+        android:id="@+id/PrecoProdutoViewCriarPub"
+        android:layout_width="175dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="325dp"
+        android:background="@drawable/background_botao"
+        android:gravity="center_vertical"
+        android:text="Preço do produto:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <ru.kolotnev.formattedittext.MaskedEditText
+        android:id="@+id/editTextPrecoProdutoCriarPub"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="325dp"
+        android:background="@drawable/background_botao_preto"
+        app:mask=" R$ 999 , 99"
+        app:placeholder="_" />
+
+    <Button
+        android:id="@+id/botaoAdicionarPubEstComercial"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="390dp"
+        android:background="@drawable/bg_button"
+        android:text="Adicionar"
+        android:textColor="@android:color/white" />
 
 </FrameLayout>
