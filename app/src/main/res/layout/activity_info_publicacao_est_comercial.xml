@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/amarelo_pastel_background"
-    tools:context=".publicacao.ui.CriarPublicacaoEstComercialActivity">
+    tools:context=".publicacao.ui.EditarPublicacaoEstComercialActivity">
 
     <TextView
         android:id="@+id/infoTextDateValidadePublicacao"

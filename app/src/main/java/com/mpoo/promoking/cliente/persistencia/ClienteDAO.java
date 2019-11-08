@@ -38,6 +38,16 @@ public class ClienteDAO extends AbstractSQLite {
         return result;
     }
 
+    public long getID(String username) throws IOException {
+        SQLiteDatabase db = super.getReadableDatabase();
+        String sqlUsername = "SELECT * FROM " + BancoDadosHelper.TABELA_CLIENTE
+                + " U WHERE U." + BancoDadosHelper.COLUNA_USERNAME_CLIENTE + " LIKE ?;";
+        Cursor cursor = db.rawQuery(sqlUsername, new String[]{username});
+        int id = cursor.getColumnIndex(BancoDadosHelper.COLUNA_ID_CLIENTE);
+        return id;
+    }
+
+
     private Usuario create(Cursor cursor) {
         Usuario result = new Usuario();
         try {

@@ -1,5 +1,6 @@
 package com.mpoo.promoking.publicacao.negocio;
 
+import com.mpoo.promoking.cliente.persistencia.PublicacaoClienteDAO;
 import com.mpoo.promoking.infra.exception.PublicacaoJaRealizadaException;
 import com.mpoo.promoking.infra.persistencia.AbstractSQLite;
 import com.mpoo.promoking.publicacao.dominio.Publicacao;
@@ -17,17 +18,13 @@ public class PublicacaoServices extends AbstractSQLite {
         result = publicacaoDAO.get(publicacaoId);
         return result;
     }
-    public void salvarPublicacao(Publicacao publicacao, Usuario usuario) throws IOException, PublicacaoJaRealizadaException {
-        if(getPublicacao(publicacao.getId()) != null) {
-            throw new PublicacaoJaRealizadaException("Publicação já existe.");
-        }
-        PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
-        long idPublicacao = publicacaoDAO.insert(publicacao);
-        publicacao.setId(idPublicacao);
-        if (usuario.getIdTipoUsuario().equals(TipoUsuario.CLIENTE)){
-            usuario.getCliente().getArrayListIdPublicacoes().add(String.valueOf(idPublicacao));
+    public void salvarPublicacao(Publicacao publicacao, TipoUsuario tipoUsuario, long idUsuario) throws IOException, PublicacaoJaRealizadaException {
+        long idPublicacao = new PublicacaoDAO().insert(publicacao, tipoUsuario.toString());
+
+        if (tipoUsuario.equals(TipoUsuario.CLIENTE)){
+            new PublicacaoClienteDAO().insert(idUsuario, idPublicacao);
         }else {
-            usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().add(String.valueOf(idPublicacao));
+
         }
     }
     public void atualizarPublicacao(Publicacao publicacao) throws IOException {
@@ -36,20 +33,20 @@ public class PublicacaoServices extends AbstractSQLite {
             publicacaoDAO.update(publicacao);
         }
     }
-    public void deletarPublicacao(Publicacao publicacao, Usuario usuario) throws IOException {
-        if (getPublicacao(publicacao.getId()) != null) {
-            PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
-            long idPublicacao = publicacao.getId();
-            if (usuario.getIdTipoUsuario().equals(TipoUsuario.CLIENTE)){
-                long indexPublicacao = usuario.getCliente().getArrayListIdPublicacoes().indexOf(idPublicacao);
-                usuario.getCliente().getArrayListIdPublicacoes().remove(indexPublicacao);
-            }else {
-                long indexPublicacao = usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().indexOf(idPublicacao);
-                usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().remove(indexPublicacao);
-            }
-            publicacaoDAO.delete(publicacao);
-        }
-    }
+//    public void deletarPublicacao(Publicacao publicacao, Usuario usuario) throws IOException {
+//        if (getPublicacao(publicacao.getId()) != null) {
+//            PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
+//            long idPublicacao = publicacao.getId();
+//            if (usuario.getIdTipoUsuario().equals(TipoUsuario.CLIENTE)){
+//                long indexPublicacao = usuario.getCliente().getArrayListIdPublicacoes().indexOf(idPublicacao);
+//                usuario.getCliente().getArrayListIdPublicacoes().remove(indexPublicacao);
+//            }else {
+//                long indexPublicacao = usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().indexOf(idPublicacao);
+//                usuario.getEstabelecimentoComercial().getArrayListIdPublicacoes().remove(indexPublicacao);
+//            }
+//            publicacaoDAO.delete(publicacao);
+//        }
+//    }
     public List<Publicacao> retornarListaObjetosPublicacoes() throws IOException {
         PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
         List<Publicacao> listaPublicacoes = publicacaoDAO.list();

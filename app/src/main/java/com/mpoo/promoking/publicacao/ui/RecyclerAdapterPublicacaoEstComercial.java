@@ -32,7 +32,7 @@ public class RecyclerAdapterPublicacaoEstComercial extends RecyclerView.Adapter 
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         ViewHolderPublicacaoEstComercial holder = (ViewHolderPublicacaoEstComercial) viewHolder;
         Publicacao publicacao = listaPublicacoes.get(position);
-        holder.tipoProduto.setText(StringUtils.capitalize((publicacao.getProduto().getTipo().replaceAll("_", " "))));
+        holder.tipoProduto.setText(StringUtils.capitalize((publicacao.getProduto().getProduto().replaceAll("_", " "))));
         holder.marcaProduto.setText(StringUtils.capitalize(publicacao.getMarca().replaceAll("_", " ")));
         holder.preco.setText(publicacao.getPreco().toString());
         holder.unidadeVenda.setText(StringUtils.capitalize(publicacao.getUnidadeVenda().toString().replaceAll("_", " ")));

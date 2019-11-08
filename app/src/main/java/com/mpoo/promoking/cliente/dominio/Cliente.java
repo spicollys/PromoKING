@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class Cliente {
     private final TipoUsuario tipoUsuario = TipoUsuario.CLIENTE;
     private Usuario usuario;
-    private ArrayList<String> idPublicacoes;
 
     public Cliente(Usuario usuario) { }
 
@@ -17,8 +16,4 @@ public class Cliente {
     public Usuario getUsuario() { return usuario; }
 
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
-
-    public ArrayList<String> getArrayListIdPublicacoes() { return idPublicacoes; }
-
-    public void setArrayListIdPublicacoes(ArrayList<String> idPublicacoes) { this.idPublicacoes = idPublicacoes; }
 }

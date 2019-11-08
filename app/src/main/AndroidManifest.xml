@@ -12,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".publicacao.ui.InfoPublicacaoEstComercialActivity"></activity>
         <activity android:name=".publicacao.ui.EditarPublicacaoEstComercialActivity" />
-        <activity android:name=".publicacao.ui.CriarPublicacaoEstComercialActivity" />
         <activity android:name=".publicacao.ui.ListarPublicacaoEstComercialActivity" />
         <activity android:name=".usuario.ui.CadastroActivity" />
         <activity android:name=".infra.ui.MainActivityEstabelecimentoComercial" />

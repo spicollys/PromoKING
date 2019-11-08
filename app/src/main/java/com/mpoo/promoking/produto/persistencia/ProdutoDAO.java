@@ -16,7 +16,7 @@ public class ProdutoDAO extends AbstractSQLite {
     public void insert(Produto produto) throws IOException {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(BancoDadosHelper.COLUNA_TIPO_PRODUTO, produto.getTipo());
+        values.put(BancoDadosHelper.COLUNA_PRODUTO, produto.getProduto());
         values.put(BancoDadosHelper.COLUNA_MARCAS_PRODUTO, produto.getMarcas());
         db.insert(BancoDadosHelper.TABELA_PRODUTO, null, values);
         super.close(db);
@@ -25,7 +25,7 @@ public class ProdutoDAO extends AbstractSQLite {
     public Produto get(String tipoProduto) throws IOException{
         SQLiteDatabase db = super.getReadableDatabase();
         String sqlTipoProduto = "SELECT * FROM " + BancoDadosHelper.TABELA_PRODUTO
-                + " U WHERE U." + BancoDadosHelper.COLUNA_TIPO_PRODUTO + " LIKE ?;";
+                + " U WHERE U." + BancoDadosHelper.COLUNA_PRODUTO + " LIKE ?;";
         Cursor cursor = db.rawQuery(sqlTipoProduto, new String[]{tipoProduto});
         Produto result = null;
         if(cursor.moveToFirst()){
@@ -37,7 +37,7 @@ public class ProdutoDAO extends AbstractSQLite {
 
     public Produto create(Cursor cursor) {
         Produto result = new Produto();
-        result.setTipo(cursor.getString(cursor.getColumnIndex(BancoDadosHelper.COLUNA_TIPO_PRODUTO)));
+        result.setProduto(cursor.getString(cursor.getColumnIndex(BancoDadosHelper.COLUNA_PRODUTO)));
         result.setMarcas(cursor.getString(cursor.getColumnIndex(BancoDadosHelper.COLUNA_MARCAS_PRODUTO)));
         return result;
     }
@@ -45,17 +45,17 @@ public class ProdutoDAO extends AbstractSQLite {
         SQLiteDatabase db = super.getWritableDatabase();
         String sql = "UPDATE " + BancoDadosHelper.TABELA_PRODUTO + " SET " +
                 BancoDadosHelper.COLUNA_MARCAS_PRODUTO + "=? " +
-                " WHERE " + BancoDadosHelper.COLUNA_TIPO_PRODUTO + "=?;";
+                " WHERE " + BancoDadosHelper.COLUNA_PRODUTO + "=?;";
         db.execSQL(sql, new String[]{
             produto.getMarcas(),
-            produto.getTipo()
+            produto.getProduto()
         });
         super.close(db);
     }
     public void delete(Produto produto) throws IOException{
         SQLiteDatabase db = super.getWritableDatabase();
-        String [] argumentos = {produto.getTipo()};
-        db.delete(BancoDadosHelper.TABELA_PRODUTO, BancoDadosHelper.COLUNA_TIPO_PRODUTO + " =?", argumentos);
+        String [] argumentos = {produto.getProduto()};
+        db.delete(BancoDadosHelper.TABELA_PRODUTO, BancoDadosHelper.COLUNA_PRODUTO + " =?", argumentos);
         super.close(db);
     }
     public List<Produto> list() throws IOException {

@@ -9,14 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.mpoo.promoking.R;
-import com.mpoo.promoking.infra.Sessao;
 import com.mpoo.promoking.infra.ui.MainActivityCliente;
 import com.mpoo.promoking.infra.ui.MainActivityEstabelecimentoComercial;
 import com.mpoo.promoking.infra.ui.TaskResult;
 import com.mpoo.promoking.infra.ui.TaskResultType;
-import com.mpoo.promoking.publicacao.ui.CriarPublicacaoEstComercialActivity;
 import com.mpoo.promoking.usuario.dominio.TipoUsuario;
-import com.mpoo.promoking.usuario.dominio.Usuario;
 import com.mpoo.promoking.usuario.negocios.UsuarioServices;
 
 import android.content.Intent;
@@ -27,8 +24,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 

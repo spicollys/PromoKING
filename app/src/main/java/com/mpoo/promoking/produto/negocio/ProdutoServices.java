@@ -1,7 +1,5 @@
 package com.mpoo.promoking.produto.negocio;
 
-import androidx.core.util.Consumer;
-
 import com.mpoo.promoking.infra.exception.MarcaJaCadastradaException;
 import com.mpoo.promoking.infra.exception.ProdutoJaCadastradoException;
 import com.mpoo.promoking.infra.exception.ProdutoNaoCadastradoException;
@@ -28,16 +26,16 @@ public class ProdutoServices extends AbstractSQLite {
     }
 
     public Produto registrarProduto(Produto produto) throws IOException, ProdutoJaCadastradoException {
-        if (getProduto(produto.getTipo()) != null) {
+        if (getProduto(produto.getProduto()) != null) {
             throw new ProdutoJaCadastradoException("Produto já cadastrado.");
         }
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.insert(produto);
-        return getProduto(produto.getTipo());
+        return getProduto(produto.getProduto());
     }
 
     public void registrarMarca(Produto produto, String novaMarca) throws IOException, MarcaJaCadastradaException, ProdutoNaoCadastradoException {
-        if (getProduto(produto.getTipo()) == null) {
+        if (getProduto(produto.getProduto()) == null) {
             throw new ProdutoNaoCadastradoException("Produto não cadastrado");
         } else if (procuraMarcaExistente(novaMarca, produto.getMarcas())) {
             throw new MarcaJaCadastradaException("Marca já cadastrada");
@@ -72,11 +70,11 @@ public class ProdutoServices extends AbstractSQLite {
         return listaProdutos;
     }
     public List<String> retornarListaStringProdutosDisponiveis() throws IOException {
-        List <String> lista_formatada = new ArrayList<String>();
+        List<String> listaFormatada = new ArrayList<String>();
         for (Produto produto : retornarListaProdutosDisponiveis()) {
-            lista_formatada.add(StringUtils.capitalize(produto.getTipo()).replaceAll("_", " "));
+            listaFormatada.add(StringUtils.capitalize(produto.getProduto()).replaceAll("_", " "));
         }
-        return lista_formatada;
+        return listaFormatada;
     }
 }
 

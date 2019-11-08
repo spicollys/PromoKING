@@ -16,15 +16,16 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class PublicacaoDAO extends AbstractSQLite {
-    public long insert(Publicacao publicacao) throws IOException {
+    public long insert(Publicacao publicacao, String tipoUsuario) throws IOException {
         SQLiteDatabase db = super.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(BancoDadosHelper.COLUNA_PROD_PUBLICACAO, publicacao.getProduto().getTipo());
+        values.put(BancoDadosHelper.COLUNA_PROD_PUBLICACAO, publicacao.getProduto().getProduto());
         values.put(BancoDadosHelper.COLUNA_MARCA_PUBLICACAO, publicacao.getMarca());
         values.put(BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO, publicacao.getPreco());
         values.put(BancoDadosHelper.COLUNA_VALIDADE_PRODUTO, publicacao.getValidadeProduto().getTimeInMillis());
         values.put(BancoDadosHelper.COLUNA_VALIDADE_PUBLICACAO, publicacao.getValidadePublicacao().getTimeInMillis());
         values.put(BancoDadosHelper.COLUNA_UNID_VENDA, publicacao.getUnidadeVenda().ordinal());
+        values.put(BancoDadosHelper.COLUNA_USUARIO, tipoUsuario);
         long id = db.insert(BancoDadosHelper.TABELA_PUBLICACAO, null, values);
         super.close(db);
         return id;
@@ -44,15 +45,15 @@ public class PublicacaoDAO extends AbstractSQLite {
     public void update(Publicacao publicacao) throws IOException{
         SQLiteDatabase db = super.getWritableDatabase();
         String sql = "UPDATE "+ BancoDadosHelper.TABELA_PUBLICACAO + " SET " +
-                BancoDadosHelper.COLUNA_PROD_PUBLICACAO  + "=?, " +
-                BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO  + "=?, " +
-                BancoDadosHelper.COLUNA_MARCA_PUBLICACAO  + "=?, " +
-                BancoDadosHelper.COLUNA_VALIDADE_PRODUTO  + "=?, " +
-                BancoDadosHelper.COLUNA_VALIDADE_PUBLICACAO  + "=?, " +
+                BancoDadosHelper.COLUNA_PROD_PUBLICACAO + "=?, " +
+                BancoDadosHelper.COLUNA_PRECO_PROD_PUBLICACAO + "=?, " +
+                BancoDadosHelper.COLUNA_MARCA_PUBLICACAO + "=?, " +
+                BancoDadosHelper.COLUNA_VALIDADE_PRODUTO + "=?, " +
+                BancoDadosHelper.COLUNA_VALIDADE_PUBLICACAO + "=?, " +
                 BancoDadosHelper.COLUNA_UNID_VENDA + "=? " +
                 " WHERE " + BancoDadosHelper.COLUNA_ID_PUBLICACAO + "=?;";
         db.execSQL(sql, new String[]{
-                publicacao.getProduto().getTipo(),
+                publicacao.getProduto().getProduto(),
                 String.valueOf(publicacao.getPreco()),
                 publicacao.getMarca(),
                 String.valueOf(publicacao.getValidadeProduto().getTimeInMillis()),
@@ -82,10 +83,10 @@ public class PublicacaoDAO extends AbstractSQLite {
     private Publicacao createPublicacao(Cursor cursorPublicacao) throws IOException{
         SQLiteDatabase db = super.getReadableDatabase();
         String sqlTipoProduto = "SELECT * FROM " + BancoDadosHelper.TABELA_PRODUTO
-                + " U WHERE U." + BancoDadosHelper.COLUNA_TIPO_PRODUTO + " LIKE ?;";
+                + " U WHERE U." + BancoDadosHelper.COLUNA_PRODUTO + " LIKE ?;";
         Cursor cursor = db.rawQuery(sqlTipoProduto, new String[]{cursorPublicacao.getString(cursorPublicacao.getColumnIndex(BancoDadosHelper.COLUNA_PROD_PUBLICACAO))});
         Produto produto = new Produto();
-        produto.setTipo(cursor.getString(cursor.getColumnIndex(BancoDadosHelper.COLUNA_TIPO_PRODUTO)));
+        produto.setProduto(cursor.getString(cursor.getColumnIndex(BancoDadosHelper.COLUNA_PRODUTO)));
         produto.setMarcas(cursor.getString(cursorPublicacao.getColumnIndex(BancoDadosHelper.COLUNA_MARCAS_PRODUTO)));
         super.close(db, cursor);
         //

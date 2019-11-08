@@ -1,20 +1,20 @@
 package com.mpoo.promoking.produto.dominio;
 
 public class Produto {
-    private String tipo;
+    private String produto;
     private String marcas;
 
     public Produto() {
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getProduto() {
+        return produto;
     }
     public String getMarcas() {
         return marcas;
     }
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     public void setMarcas(String marcas) {
